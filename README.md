@@ -1,2 +1,2 @@
 #Web Browser in JAVA
-- Created a basic web browser from scratch to start learning networking.
+- Created a basic web browser from scratch to start learning GUI and networking.
