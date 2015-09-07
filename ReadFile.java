@@ -15,7 +15,7 @@ public class ReadFile extends JFrame{
 		
 		super("rohangoel's broswer");	//sets the title of the browser window
 		
-		addressBar = new JTextField("http://");	//address bar for entering the URL
+		addressBar = new JTextField("http://www.");	//address bar for entering the URL
 		addressBar.addActionListener(
 				
 				/**
@@ -58,7 +58,7 @@ public class ReadFile extends JFrame{
 				);
 		
 		add (new JScrollPane(display),BorderLayout.CENTER);
-		setSize(500,300);	//size of the browser window
+		setSize(1024,768);	//size of the browser window
 		setVisible(true);
 			
 			}
