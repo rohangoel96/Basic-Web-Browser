@@ -15,7 +15,7 @@ public class ReadFile extends JFrame{
 		
 		super("rohangoel's broswer");	//sets the title of the browser window
 		
-		addressBar = new JTextField("Enter your URL here");	//address bar for entering the URL
+		addressBar = new JTextField("http://");	//address bar for entering the URL
 		addressBar.addActionListener(
 				
 				/**
@@ -25,10 +25,12 @@ public class ReadFile extends JFrame{
 					
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						//loadWebsite(e.getActionCommand());	//getActionCommand() returns the string inside the address bar associated with the hit enter event
+						loadWebsite(e.getActionCommand());	//getActionCommand() returns the string inside the address bar associated with the hit enter event
 						
 					}
+					
 				}	
+				
 				);
 		add(addressBar,BorderLayout.NORTH);	//add the address bar and place it on the top of the screen
 		
@@ -47,11 +49,36 @@ public class ReadFile extends JFrame{
 					public void hyperlinkUpdate(HyperlinkEvent e) {
 						
 						if(e.getEventType()==HyperlinkEvent.EventType.ACTIVATED) // if click on the link
-							//loadWebsite(e.getURL().toString());	//convert the URL object to string (method loadWebsite takes string as an attribute)
+							loadWebsite(e.getURL().toString());	//convert the URL object to string (method loadWebsite takes string as an attribute)
 											
 					}
+					
 				}
+				
 				);
+		
+		add (new JScrollPane(display),BorderLayout.CENTER);
+		setSize(500,300);	//size of the browser window
+		setVisible(true);
+			
 			}
+	
+	/**
+	 * load the website
+	 */
+	
+	private void loadWebsite(String website){
+		
+		try {
+			
+			display.setPage(website); //setPage() inbuilt JAVA method which takes website as a string and put in the display window
+			addressBar.setText(website);
+		} 
+		
+		catch (Exception e) {
+			System.out.println("Error while loading website");
+		}
+		
+	}
 
 }
